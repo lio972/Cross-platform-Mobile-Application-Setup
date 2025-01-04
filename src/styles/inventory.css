@@ -1,0 +1,61 @@
+.inventory-page {
+      padding: 2rem;
+    }
+
+    .inventory-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .inventory-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item-info h3 {
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .item-info p {
+      margin: 0.25rem 0;
+      color: #666;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .edit-btn,
+    .delete-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .edit-btn {
+      color: #4A90E2;
+    }
+
+    .delete-btn {
+      color: #ff4d4f;
+    }
+
+    .edit-btn:hover {
+      background: rgba(74, 144, 226, 0.1);
+    }
+
+    .delete-btn:hover {
+      background: rgba(255, 77, 79, 0.1);
+    }

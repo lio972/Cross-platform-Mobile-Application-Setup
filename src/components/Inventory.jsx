@@ -1,0 +1,3 @@
+import React from 'react';
+    import { Edit, Trash } from 'lucide-react';
+    // Rest of the Inventory component code...
