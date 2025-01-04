@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
     import LoginScreen from '../screens/LoginScreen';
     import { useSelector } from 'react-redux';
     import { RootState } from '../store/store';
-    import StatusBar from '../components/StatusBar';
 
     const Stack = createNativeStackNavigator();
 
@@ -14,25 +13,18 @@ import { NavigationContainer } from '@react-navigation/native';
       );
 
       return (
-        <>
-          <StatusBar />
-          <NavigationContainer>
-            <Stack.Navigator>
-              {isAuthenticated ? (
-                <Stack.Screen 
-                  name="Home" 
-                  component={HomeScreen} 
-                  options={{ title: 'My Goals' }}
-                />
-              ) : (
-                <Stack.Screen
-                  name="Login"
-                  component={LoginScreen}
-                  options={{ headerShown: false }}
-                />
-              )}
-            </Stack.Navigator>
-          </NavigationContainer>
-        </>
+        <NavigationContainer>
+          <Stack.Navigator>
+            {isAuthenticated ? (
+              <Stack.Screen name="Home" component={HomeScreen} />
+            ) : (
+              <Stack.Screen
+                name="Login"
+                component={LoginScreen}
+                options={{ headerShown: false }}
+              />
+            )}
+          </Stack.Navigator>
+        </NavigationContainer>
       );
     }

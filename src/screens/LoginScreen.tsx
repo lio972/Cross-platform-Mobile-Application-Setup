@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
     import { StyleSheet, TextInput, Button, View, Text } from 'react-native';
     import { useDispatch } from 'react-redux';
-    import { loginUser } from '../store/features/authSlice';
+    import { login } from '../store/authSlice';
 
     const DEFAULT_ACCOUNT = {
       email: 'test@example.com',
@@ -15,16 +15,10 @@ import React, { useState } from 'react';
 
       const handleLogin = () => {
         if (email === DEFAULT_ACCOUNT.email && password === DEFAULT_ACCOUNT.password) {
-          dispatch(loginUser({ email, password }));
+          dispatch(login({ email, name: 'Test User' }));
         } else {
           alert('Invalid credentials. Use test@example.com / password123');
         }
-      };
-
-      const useDefaultAccount = () => {
-        setEmail(DEFAULT_ACCOUNT.email);
-        setPassword(DEFAULT_ACCOUNT.password);
-        handleLogin();
       };
 
       return (
@@ -49,7 +43,11 @@ import React, { useState } from 'react';
           <View style={styles.separator} />
           <Button 
             title="Use Default Account" 
-            onPress={useDefaultAccount} 
+            onPress={() => {
+              setEmail(DEFAULT_ACCOUNT.email);
+              setPassword(DEFAULT_ACCOUNT.password);
+              handleLogin();
+            }} 
             color="#4A90E2"
           />
         </View>
